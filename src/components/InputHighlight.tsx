@@ -20,7 +20,7 @@ export const InputHighlight = forwardRef<HTMLInputElement | HTMLTextAreaElement,
     const [isFocused, setIsFocused] = useState(false);
 
     const baseClasses = cn(
-      "w-full bg-transparent border-0 border-b border-[var(--color-brand-purple)]/50 px-0 py-2 text-xl outline-none transition-colors",
+      "w-full bg-transparent border-0 border-b border-[#922049] px-0 py-2 text-xl outline-none transition-colors",
       "focus:border-transparent text-[var(--color-brand-wine)] font-sans font-light rounded-none",
       multiline && "resize-none min-h-[4rem] sm:min-h-[3rem]", // accommodate 2 lines easily on small screens
       className,

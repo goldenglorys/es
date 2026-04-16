@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Toaster } from 'sonner';
-import { EntryAnimation } from './components/EntryAnimation';
+
 import { RSVPForm } from './components/RSVPForm';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { PasscodeInput } from './components/PasscodeInput';
 
 function App() {
-  const [showEntry, setShowEntry] = useState(true);
   const [isClosed, setIsClosed] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -33,13 +32,8 @@ function App() {
         }}
       />
       
-      <AnimatePresence>
-        {showEntry && <EntryAnimation key="entry" onComplete={() => setShowEntry(false)} />}
-      </AnimatePresence>
-
       <AnimatePresence mode="wait">
-        {!showEntry && (
-          <motion.div
+        <motion.div
             key="main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -54,8 +48,7 @@ function App() {
             ) : (
               <RSVPForm />
             )}
-          </motion.div>
-        )}
+        </motion.div>
       </AnimatePresence>
     </>
   );

@@ -25,7 +25,6 @@ export const RSVPForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-
   const handleInputChange =
     (field: keyof RSVPData) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -83,20 +82,20 @@ export const RSVPForm = () => {
           particleCount: 120,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ['#FF4689', '#922049', '#FFAECD', '#FFF5E1'],
-          gravity: 0.8
+          colors: ["#FF4689", "#922049", "#FFAECD", "#FFF5E1"],
+          gravity: 0.8,
         });
       } else {
         // Subtle, gentle falling effect for decline
         confetti({
           particleCount: 30,
           spread: 150,
-          origin: { y: 0 }, 
-          colors: ['#922049', '#D9C5C8'],
-          gravity: 0.1, 
+          origin: { y: 0 },
+          colors: ["#922049", "#D9C5C8"],
+          gravity: 0.1,
           scalar: 1,
-          ticks: 400, 
-          shapes: ['circle']
+          ticks: 400,
+          shapes: ["circle"],
         });
       }
       setSubmitted(true);
@@ -110,11 +109,6 @@ export const RSVPForm = () => {
       opacity: 1,
       transition: { staggerChildren: 0.8, delayChildren: 0.5 },
     },
-  };
-
-  const itemVariants: any = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } },
   };
 
   if (submitted) {
@@ -148,24 +142,11 @@ export const RSVPForm = () => {
         animate="show"
         className="text-center mb-24"
       >
-        <motion.p
-          variants={itemVariants}
-          className="font-serif italic text-2xl lg:text-3xl text-[var(--color-brand-wine)]/90 tracking-wide mb-6"
-        >
-          With joyful hearts,
-        </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="font-sans font-light text-lg md:text-xl uppercase tracking-[0.3em] text-[var(--color-brand-wine)]/80 mb-6"
-        >
-          we invite you to celebrate this special day with us.
-        </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="font-sans font-light text-[var(--color-brand-wine)]/90 text-lg mb-8 max-w-xl mx-auto leading-relaxed"
-        >
-          Kindly share your response below by June 15, 2026. We truly hope you can join us as we begin this beautiful new chapter together 🤍
-        </motion.p>
+        <img
+          src="/hero.jpg"
+          alt="Enyonam & Solomon"
+          className="w-full max-w-lg mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover aspect-[4/5] opacity-95"
+        />
       </motion.div>
 
       <motion.form
@@ -182,7 +163,9 @@ export const RSVPForm = () => {
             onChange={handleInputChange("full_name")}
             required
           />
-          <p className="text-left text-sm text-[var(--color-brand-wine)]/70 font-sans -mt-4 pl-1">Please enter your full name</p>
+          <p className="text-left text-sm text-[var(--color-brand-wine)]/70 font-sans -mt-4 pl-1">
+            Please enter your full name
+          </p>
         </div>
 
         <AnimatePresence>
@@ -193,7 +176,9 @@ export const RSVPForm = () => {
               exit={{ opacity: 0, height: 0 }}
               className="flex flex-col items-center gap-6 mt-16 overflow-hidden w-full"
             >
-              <h3 className="font-serif text-2xl text-[var(--color-brand-wine)] mb-2">Will you attend?</h3>
+              <h3 className="font-serif text-2xl text-[var(--color-brand-wine)] mb-2">
+                Will you attend?
+              </h3>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-6 w-full">
                 <MagneticButton
                   type="button"
@@ -230,7 +215,10 @@ export const RSVPForm = () => {
                   value={formData.email}
                   onChange={handleInputChange("email")}
                 />
-                <p className="text-left text-sm text-[var(--color-brand-wine)]/70 font-sans -mt-4 pl-1">Kindly enter your email address for important updates on our wedding</p>
+                <p className="text-left text-sm text-[var(--color-brand-wine)]/70 font-sans -mt-4 pl-1">
+                  Kindly enter your email address for important updates on our
+                  wedding
+                </p>
               </div>
               <InputHighlight
                 label="Do you have any dietary restrictions/allergies?"
@@ -249,7 +237,9 @@ export const RSVPForm = () => {
               />
 
               <div className="mt-8">
-                <p className="text-center font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">Also check out our registry.</p>
+                <p className="text-center font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">
+                  Also check out our registry.
+                </p>
                 <RegistryCard />
               </div>
 
@@ -279,7 +269,7 @@ export const RSVPForm = () => {
               <p className="font-sans text-[var(--color-brand-wine)]/80 text-center mb-10 text-lg">
                 Please feel free to leave us a note and check out our registry.
               </p>
-              
+
               <InputHighlight
                 label="Your note..."
                 name="note"
