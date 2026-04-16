@@ -25,8 +25,8 @@ export const MagneticButton = ({ children, variant = 'primary', className = '', 
 
   const baseClasses = "px-10 py-5 tracking-[0.15em] text-sm sm:text-base uppercase transition-colors duration-500 rounded-full relative overflow-hidden flex items-center justify-center w-full sm:w-auto";
   const variants = {
-    primary: "bg-[var(--color-brand-hotpink)] text-white hover:bg-[#ff5a99] shadow-[0_0_15px_rgba(255,70,137,0.5)]",
-    outline: "bg-transparent border border-[var(--color-brand-wine)] text-[var(--color-brand-wine)] hover:bg-[var(--color-brand-wine)]/20"
+    primary: "bg-transparent border border-[var(--color-brand-wine)] text-[var(--color-brand-wine)] hover:bg-[var(--color-brand-wine)] hover:text-white hover:shadow-lg hover:shadow-black/20 font-bold",
+    outline: "bg-transparent border border-[var(--color-brand-wine)] text-[var(--color-brand-wine)] hover:bg-[var(--color-brand-wine)]/20 font-bold"
   };
 
   const { x, y } = position;

@@ -12,7 +12,7 @@ export const RegistryCard = () => {
         href="https://www.amazon.com/wedding/guest-view/N8FXCH30SI45" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="px-10 py-4 tracking-[0.15em] text-sm uppercase transition-all duration-500 rounded-full border border-[var(--color-brand-hotpink)] text-[var(--color-brand-wine)] hover:bg-[var(--color-brand-hotpink)] hover:text-white hover:shadow-[0_0_20px_rgba(255,70,137,0.4)] font-bold"
+        className="px-10 py-4 tracking-[0.15em] text-sm uppercase transition-all duration-500 rounded-full border border-[var(--color-brand-wine)] text-[var(--color-brand-wine)] hover:bg-[var(--color-brand-wine)] hover:text-white hover:shadow-lg hover:shadow-black/20 font-bold"
       >
         View Registry
       </a>

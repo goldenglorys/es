@@ -166,17 +166,6 @@ export const RSVPForm = () => {
         >
           Kindly share your response below by June 15, 2026. We truly hope you can join us as we begin this beautiful new chapter together 🤍
         </motion.p>
-        <motion.h1
-          variants={itemVariants}
-          className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[var(--color-brand-wine)] my-10"
-        >
-          Enyonam
-          <br />
-          <span className="text-[var(--color-brand-hotpink)] text-4xl lg:text-6xl italic">
-            &amp;
-          </span>
-          <br /> Solomon
-        </motion.h1>
       </motion.div>
 
       <motion.form
