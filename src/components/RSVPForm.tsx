@@ -238,6 +238,7 @@ export const RSVPForm = () => {
                 name="dietary"
                 value={formData.dietary}
                 onChange={handleInputChange("dietary")}
+                multiline
               />
 
               <div className="relative w-full mb-10 pt-6">
