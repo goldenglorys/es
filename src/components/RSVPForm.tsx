@@ -142,11 +142,7 @@ export const RSVPForm = () => {
         animate="show"
         className="text-center mb-24"
       >
-        <img
-          src="/hero.jpg"
-          alt="Enyonam & Solomon"
-          className="w-full max-w-lg mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover aspect-[4/5] opacity-95"
-        />
+        <img src="/hero.jpg" alt="Enyonam & Solomon" className="w-full max-w-3xl mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover object-[center_35%] aspect-[6/5] opacity-95" />
       </motion.div>
 
       <motion.form
