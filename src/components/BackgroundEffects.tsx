@@ -4,7 +4,7 @@ export const BackgroundEffects = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0, opacity: 0.85 }}>
       <MeshGradient 
-        colors={['#D9C5C8', '#922049', '#FFAECD', '#FDFBF7']} 
+        colors={['#FFFFFF', '#FDFBF7', '#F5F5F5', '#EFEFEF']} 
         distortion={0.5} 
         swirl={0.7} 
         speed={0.12} 

@@ -1,24 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/glacial-indifference-2');
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #020202;
-  --color-brand-purple: #9F1F9A;
-  --color-brand-hotpink: #FF4689;
-  --color-brand-wine: #922049;
-  --color-brand-blush: #FFAECD;
-  --color-brand-butter: #FDFBF7;
-  --color-brand-bg: #D9C5C8; /* Beautiful, mid-tone dusty rose/taupe */
+  --color-brand-black: #000000;
+  --color-brand-purple: #DDDDDD;
+  --color-brand-hotpink: #000000;
+  --color-brand-wine: #000000;
+  --color-brand-blush: #000000;
+  --color-brand-butter: #FFFFFF;
+  --color-brand-bg: #FFFFFF;
 
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "Glacial Indifference", sans-serif;
+  --font-sans: "Glacial Indifference", sans-serif;
 }
 
 /* Global Reset & Body */
 @layer base {
   body {
     background-color: var(--color-brand-bg);
-    color: var(--color-brand-butter);
+    color: var(--color-brand-wine);
     font-family: var(--font-sans);
+    font-size: 15px;
     margin: 0;
     overflow-x: hidden;
     /* Noise texture via SVG filter overlay + very subtle, deep wine gradient mesh */

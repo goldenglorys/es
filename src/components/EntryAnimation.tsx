@@ -17,7 +17,7 @@ export const EntryAnimation = ({ onComplete }: EntryAnimationProps) => {
     <motion.div 
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{
-        background: "radial-gradient(circle at center, var(--color-brand-bg) 0%, rgba(146, 32, 73, 0.2) 100%)",
+        background: "radial-gradient(circle at center, var(--color-brand-bg) 0%, rgba(0, 0, 0, 0.05) 100%)",
         backgroundColor: "var(--color-brand-bg)"
       }}
       initial={{ opacity: 1 }}
