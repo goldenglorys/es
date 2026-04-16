@@ -47,6 +47,13 @@ export const RSVPForm = () => {
       return;
     }
 
+    if (phase === 4 && selectedAttending === true && !formData.dietary) {
+      toast.error("Please specify any dietary restrictions (or enter 'None')", {
+        style: { backgroundColor: "#922049", color: "white", border: "none" },
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     const { error } = await rsvpService.submitRSVP(formData);
     setIsSubmitting(false);
@@ -142,7 +149,11 @@ export const RSVPForm = () => {
         animate="show"
         className="text-left mb-24 max-w-2xl mx-auto"
       >
-        <img src="/hero.jpg" alt="Enyonam & Solomon" className="w-full max-w-3xl mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover object-[center_35%] aspect-[6/5] opacity-95" />
+        <img
+          src="/hero.jpg"
+          alt="Enyonam & Solomon"
+          className="w-full max-w-3xl mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover object-[center_35%] aspect-[6/5] opacity-95"
+        />
       </motion.div>
 
       <motion.form
@@ -217,11 +228,12 @@ export const RSVPForm = () => {
                 </p>
               </div>
               <InputHighlight
-                label="Do you have any dietary restrictions/allergies?"
+                label="Do you have any dietary restrictions/allergies?*"
                 name="dietary"
                 value={formData.dietary}
                 onChange={handleInputChange("dietary")}
                 multiline
+                required
               />
 
               <InputHighlight
@@ -239,7 +251,7 @@ export const RSVPForm = () => {
                 <RegistryCard />
               </div>
 
-              <div className="flex justify-start mt-12 pb-20">
+              <div className="flex justify-center mt-12 pb-20">
                 <MagneticButton type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <Loader2 className="animate-spin w-6 h-6 mx-auto" />
@@ -276,18 +288,19 @@ export const RSVPForm = () => {
               <div className="w-full mb-12">
                 <RegistryCard />
               </div>
-              <MagneticButton
-                type="submit"
-                variant="outline"
-                disabled={isSubmitting}
-                className="mb-8"
-              >
-                {isSubmitting ? (
-                  <Loader2 className="animate-spin w-5 h-5 mx-auto" />
-                ) : (
-                  "Confirm Decline"
-                )}
-              </MagneticButton>
+              <div className="flex justify-center mt-8 mb-12">
+                <MagneticButton
+                  type="submit"
+                  variant="outline"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <Loader2 className="animate-spin w-5 h-5 mx-auto" />
+                  ) : (
+                    "Confirm"
+                  )}
+                </MagneticButton>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
