@@ -140,7 +140,7 @@ export const RSVPForm = () => {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="text-center mb-24"
+        className="text-left mb-24 max-w-2xl mx-auto"
       >
         <img src="/hero.jpg" alt="Enyonam & Solomon" className="w-full max-w-3xl mx-auto rounded-[2rem] shadow-2xl mb-12 object-cover object-[center_35%] aspect-[6/5] opacity-95" />
       </motion.div>
@@ -170,12 +170,12 @@ export const RSVPForm = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="flex flex-col items-center gap-6 mt-16 overflow-hidden w-full"
+              className="flex flex-col items-start gap-6 mt-16 overflow-hidden w-full"
             >
-              <h3 className="font-serif text-2xl text-[var(--color-brand-wine)] mb-2">
-                Will you attend?
+              <h3 className="font-serif text-2xl text-[var(--color-brand-wine)] mb-2 text-left">
+                Will you attend?*
               </h3>
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 w-full">
+              <div className="flex flex-col sm:flex-row justify-start items-start gap-6 w-full">
                 <MagneticButton
                   type="button"
                   onClick={() => handleSelection(true)}
@@ -239,7 +239,7 @@ export const RSVPForm = () => {
                 <RegistryCard />
               </div>
 
-              <div className="flex justify-center mt-12 pb-20">
+              <div className="flex justify-start mt-12 pb-20">
                 <MagneticButton type="submit" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <Loader2 className="animate-spin w-6 h-6 mx-auto" />
