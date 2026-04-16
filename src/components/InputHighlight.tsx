@@ -39,7 +39,7 @@ export const InputHighlight = forwardRef<HTMLInputElement, InputHighlightProps>(
           className={cn(
             "absolute left-0 text-[var(--color-brand-wine)]/50 font-serif text-xl md:text-2xl cursor-text transition-all duration-300 pointer-events-none transform tracking-wide w-full pr-4 text-left leading-tight",
             isFocused || props.value
-              ? "top-0 scale-[0.80] md:scale-75 origin-top-left text-[var(--color-brand-hotpink)]"
+              ? "-top-5 md:-top-6 scale-[0.80] md:scale-75 origin-top-left text-[var(--color-brand-hotpink)]"
               : "top-10",
           )}
         >
