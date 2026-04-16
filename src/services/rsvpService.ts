@@ -11,6 +11,21 @@ export interface RSVPData {
 export const rsvpService = {
   submitRSVP: async (data: RSVPData): Promise<{ error: Error | null }> => {
     try {
+      if (data.email) {
+        // Pre-flight check for duplicate emails
+        const { data: existing, error: fetchError } = await supabase
+          .from('rsvps')
+          .select('id')
+          .eq('email', data.email)
+          .limit(1);
+
+        if (fetchError) throw fetchError;
+
+        if (existing && existing.length > 0) {
+          return { error: new Error("duplicate_email") };
+        }
+      }
+
       const { error } = await supabase
         .from('rsvps')
         .insert([{

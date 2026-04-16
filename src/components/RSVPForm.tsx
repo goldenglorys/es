@@ -53,13 +53,23 @@ export const RSVPForm = () => {
     setIsSubmitting(false);
 
     if (error) {
-      toast.error("Something went wrong. Please try again.", {
-        style: {
-          backgroundColor: "var(--color-brand-wine)",
-          color: "white",
-          border: "none",
-        },
-      });
+      if (error.message === "duplicate_email") {
+        toast.error("This email has already submitted an RSVP.", {
+          style: {
+            backgroundColor: "var(--color-brand-wine)",
+            color: "white",
+            border: "none",
+          },
+        });
+      } else {
+        toast.error("Something went wrong. Please try again.", {
+          style: {
+            backgroundColor: "var(--color-brand-wine)",
+            color: "white",
+            border: "none",
+          },
+        });
+      }
     } else {
       toast.success("Your RSVP has been beautifully received.", {
         style: {
