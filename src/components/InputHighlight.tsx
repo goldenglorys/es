@@ -16,7 +16,7 @@ export const InputHighlight = forwardRef<HTMLInputElement, InputHighlightProps>(
     const [isFocused, setIsFocused] = useState(false);
 
     return (
-      <div className="relative w-full mb-10 pt-6">
+      <div className="relative w-full mb-8 pt-10">
         <input
           ref={ref}
           onFocus={(e) => {
@@ -37,10 +37,10 @@ export const InputHighlight = forwardRef<HTMLInputElement, InputHighlightProps>(
         />
         <label
           className={cn(
-            "absolute left-0 top-8 text-[var(--color-brand-wine)]/50 font-serif text-2xl cursor-text transition-all duration-300 pointer-events-none transform tracking-wide",
+            "absolute left-0 text-[var(--color-brand-wine)]/50 font-serif text-xl md:text-2xl cursor-text transition-all duration-300 pointer-events-none transform tracking-wide w-full pr-4 text-left leading-tight",
             isFocused || props.value
-              ? "-translate-y-8 scale-75 origin-left text-[var(--color-brand-hotpink)]"
-              : "",
+              ? "top-0 scale-[0.80] md:scale-75 origin-top-left text-[var(--color-brand-hotpink)]"
+              : "top-10",
           )}
         >
           {label}
