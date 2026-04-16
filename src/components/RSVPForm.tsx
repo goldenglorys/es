@@ -6,7 +6,7 @@ import { InputHighlight } from "./InputHighlight";
 import { RegistryCard } from "./RegistryCard";
 import { rsvpService, type RSVPData } from "../services/rsvpService";
 import { Loader2 } from "lucide-react";
-import { clsx } from "clsx";
+
 import confetti from "canvas-confetti";
 
 export const RSVPForm = () => {
@@ -24,7 +24,7 @@ export const RSVPForm = () => {
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [noteFocused, setNoteFocused] = useState(false);
+
 
   const handleInputChange =
     (field: keyof RSVPData) =>
@@ -241,41 +241,13 @@ export const RSVPForm = () => {
                 multiline
               />
 
-              <div className="relative w-full mb-10 pt-6">
-                <textarea
-                  className={clsx(
-                    "w-full bg-transparent border-0 border-b border-[var(--color-brand-purple)]/50 px-0 py-2 text-xl outline-none transition-colors",
-                    "focus:border-transparent text-[var(--color-brand-wine)] font-sans font-light rounded-none resize-none min-h-[120px]",
-                  )}
-                  value={formData.note}
-                  onChange={handleInputChange("note")}
-                  onFocus={() => setNoteFocused(true)}
-                  onBlur={() => setNoteFocused(false)}
-                />
-                <label
-                  className={clsx(
-                    "absolute left-0 top-8 text-gray-400 font-serif text-2xl cursor-text transition-all duration-300 pointer-events-none transform tracking-wide",
-                    noteFocused || formData.note
-                      ? "-translate-y-8 scale-75 origin-left text-[var(--color-brand-hotpink)]"
-                      : "",
-                  )}
-                >
-                  Please feel free to leave us a note, prayer, or well wishes 💕
-                </label>
-
-                <AnimatePresence>
-                  {noteFocused && (
-                    <motion.div
-                      layoutId="glow-note"
-                      className="absolute bottom-0 left-0 w-full h-[1px] bg-[var(--color-brand-hotpink)] shadow-[0_0_8px_rgba(255,70,137,0.8)]"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      animate={{ opacity: 1, scaleX: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </AnimatePresence>
-              </div>
+              <InputHighlight
+                label="Please feel free to leave us a note, prayer, or well wishes 💕"
+                name="note"
+                value={formData.note}
+                onChange={handleInputChange("note")}
+                multiline
+              />
 
               <div className="mt-8">
                 <p className="text-center font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">Also check out our registry.</p>
@@ -309,40 +281,13 @@ export const RSVPForm = () => {
                 Please feel free to leave us a note and check out our registry.
               </p>
               
-              <div className="w-full mb-10 pt-6 relative">
-                <textarea
-                  className={clsx(
-                    "w-full bg-transparent border-0 border-b border-[var(--color-brand-purple)] px-0 py-2 text-xl outline-none transition-colors",
-                    "focus:border-transparent text-[var(--color-brand-butter)] font-sans font-light rounded-none resize-none min-h-[100px]",
-                  )}
-                  value={formData.note}
-                  onChange={handleInputChange("note")}
-                  onFocus={() => setNoteFocused(true)}
-                  onBlur={() => setNoteFocused(false)}
-                />
-                <label
-                  className={clsx(
-                    "absolute left-0 top-8 text-gray-400 font-serif text-2xl cursor-text transition-all duration-300 pointer-events-none transform tracking-wide",
-                    noteFocused || formData.note
-                      ? "-translate-y-8 scale-75 origin-left text-[var(--color-brand-hotpink)]"
-                      : "",
-                  )}
-                >
-                  Your note...
-                </label>
-                <AnimatePresence>
-                  {noteFocused && (
-                    <motion.div
-                      layoutId="glow-note-decline"
-                      className="absolute bottom-0 left-0 w-full h-[1px] bg-[var(--color-brand-hotpink)] shadow-[0_0_8px_rgba(255,70,137,0.8)]"
-                      initial={{ opacity: 0, scaleX: 0 }}
-                      animate={{ opacity: 1, scaleX: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </AnimatePresence>
-              </div>
+              <InputHighlight
+                label="Your note..."
+                name="note"
+                value={formData.note}
+                onChange={handleInputChange("note")}
+                multiline
+              />
               <div className="w-full mb-12">
                 <RegistryCard />
               </div>
