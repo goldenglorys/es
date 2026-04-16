@@ -153,7 +153,7 @@ export const RSVPForm = () => {
         onSubmit={handleSubmit}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.5, duration: 2 }}
+        transition={{ delay: 0.4, duration: 1 }}
       >
         <div className="mb-4">
           <InputHighlight
