@@ -58,7 +58,7 @@ export const RSVPForm = () => {
     setIsSubmitting(true);
     const { error } = await rsvpService.submitRSVP(formData);
 
-    if (!error && formData.email) {
+    if (!error && formData.email && formData.attending) {
       try {
         await emailService.sendRSVPConfirmation({
           full_name: formData.full_name,
@@ -259,7 +259,7 @@ export const RSVPForm = () => {
               />
 
               <div className="mt-8">
-                <p className="text-center font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">
+                <p className="text-left font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">
                   Also check out our registry.
                 </p>
                 <RegistryCard />
@@ -294,14 +294,6 @@ export const RSVPForm = () => {
 
               <div className="w-full space-y-4">
                 <InputHighlight
-                  label="Email Address*"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange("email")}
-                  required
-                />
-                
-                <InputHighlight
                   label="Your note..."
                   name="note"
                   value={formData.note}
@@ -312,10 +304,9 @@ export const RSVPForm = () => {
               <div className="w-full mb-12">
                 <RegistryCard />
               </div>
-              <div className="flex justify-center mt-8 mb-12">
+              <div className="flex justify-center mt-8 mb-12 w-full">
                 <MagneticButton
                   type="submit"
-                  variant="outline"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
