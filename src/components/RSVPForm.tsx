@@ -5,6 +5,7 @@ import { MagneticButton } from "./MagneticButton";
 import { InputHighlight } from "./InputHighlight";
 import { RegistryCard } from "./RegistryCard";
 import { rsvpService, type RSVPData } from "../services/rsvpService";
+import { emailService } from "../services/emailService";
 import { Loader2 } from "lucide-react";
 
 import confetti from "canvas-confetti";
@@ -56,6 +57,19 @@ export const RSVPForm = () => {
 
     setIsSubmitting(true);
     const { error } = await rsvpService.submitRSVP(formData);
+
+    if (!error && formData.email) {
+      try {
+        await emailService.sendRSVPConfirmation({
+          full_name: formData.full_name,
+          email: formData.email,
+          attending: formData.attending,
+        });
+      } catch (emailError) {
+        console.error("Failed to send confirmation email:", emailError);
+      }
+    }
+
     setIsSubmitting(false);
 
     if (error) {
@@ -269,22 +283,32 @@ export const RSVPForm = () => {
               initial={{ opacity: 0, filter: "blur(10px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 1.2 }}
-              className="mt-16 flex flex-col items-center"
+              className="mt-16 flex flex-col items-start px-2"
             >
-              <h3 className="font-serif text-3xl md:text-5xl text-[var(--color-brand-wine)] mb-6 tracking-wider text-center">
+              <h3 className="font-sans text-xl md:text-2xl text-[var(--color-brand-wine)]/80 mb-2 tracking-wide text-left">
                 We will miss you!
               </h3>
-              <p className="font-sans text-[var(--color-brand-wine)]/80 text-center mb-10 text-lg">
+              <p className="font-sans text-[var(--color-brand-wine)]/80 text-left mb-10 text-xl md:text-2xl">
                 Please feel free to leave us a note and check out our registry.
               </p>
 
-              <InputHighlight
-                label="Your note..."
-                name="note"
-                value={formData.note}
-                onChange={handleInputChange("note")}
-                multiline
-              />
+              <div className="w-full space-y-4">
+                <InputHighlight
+                  label="Email Address*"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange("email")}
+                  required
+                />
+                
+                <InputHighlight
+                  label="Your note..."
+                  name="note"
+                  value={formData.note}
+                  onChange={handleInputChange("note")}
+                  multiline
+                />
+              </div>
               <div className="w-full mb-12">
                 <RegistryCard />
               </div>
