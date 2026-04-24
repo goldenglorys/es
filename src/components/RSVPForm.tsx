@@ -258,12 +258,6 @@ export const RSVPForm = () => {
                 multiline
               />
 
-              <div className="mt-8">
-                <p className="text-left font-serif text-[var(--color-brand-wine)] text-xl mb-4 tracking-wide">
-                  Also check out our registry.
-                </p>
-                <RegistryCard />
-              </div>
 
               <div className="flex justify-center mt-12 pb-20">
                 <MagneticButton type="submit" disabled={isSubmitting}>
