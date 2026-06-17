@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     // Check deadline June 15, 2026 (considering end of day)
-    const deadline = new Date('2026-06-16T00:00:00Z'); 
+    const deadline = new Date('2026-06-30T00:00:00Z'); 
     if (new Date() > deadline) {
       setIsClosed(true);
     }
